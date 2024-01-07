@@ -21,6 +21,7 @@ public class HomeController {
         logger.info("This is an info message");
         logger.warn("This is a warn message");
         logger.error("This is an error message");
+        System.out.println("hello");
         return "Hello World! Testing Github Action";
     }
 }
