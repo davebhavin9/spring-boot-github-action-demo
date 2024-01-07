@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/api/v1/")
+@RequestMapping("/")
 public class HomeController {
 
     private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
-    @GetMapping("home")
+    @GetMapping("app")
     public String index(){
 
         logger.info("Hello World! Testing Github Action");
