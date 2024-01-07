@@ -34,7 +34,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
-    @RequestMapping("/")
+    @RequestMapping("/app")
     String index(){
         logger.debug("This is a debug message");
         logger.info("This is an info message");
