@@ -37,7 +37,7 @@ public class HomeController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
    
     @GetMapping("hello")
-    String index(){
+    public String index(){
         logger.debug("This is a debug message");
         logger.info("This is an info message");
         logger.warn("This is a warn message");
