@@ -1,29 +1,40 @@
 package com.example.springbootgithubactiondemo.controller;
 
-// import org.slf4j.Logger;
-// import org.slf4j.LoggerFactory;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import java.util.logging.Logger;
+import java.util.logging.FileHandler;
+import java.util.logging.Handler;
+import java.util.logging.SimpleFormatter;
+import java.io.IOException;
+
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 
 @RestController
 @RequestMapping("/")
 public class HomeController {
 
-    private final Logger logger = LogManager.getLogger(this.getClass());
+    public static final Logger logger = Logger.getLogger(HomeController.class.getName());
+    static Handler fileHandler = null;
+
+    public static void setup() {
+
+        try {
+            fileHandler = new FileHandler("var/log/app.log");//file
+            SimpleFormatter simple = new SimpleFormatter();
+            fileHandler.setFormatter(simple);
+            logger.addHandler(fileHandler);
+        } catch (IOException e) {
+            logger.fine("This is an fine message");
+        }
+    }
 
     @GetMapping("app")
     public String index(){
-
-        logger.info("Hello World! Testing Github Action");
-        logger.debug("This is a debug message");
+        setup();
+        logger.info("Hello World! Testing Java Application");
         logger.info("This is an info message");
-        logger.warn("This is a warn message");
-        logger.error("This is an error message");
-        System.out.println("hello");
-        return "Hello World! Testing Github Action";
+        return "Hello World! Testing Java Application";
     }
 }
