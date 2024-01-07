@@ -32,6 +32,12 @@
             <artifactId>logback-classic</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>3.0.0-beta1</version>
+        </dependency>
     </dependencies>
 
     <build>
